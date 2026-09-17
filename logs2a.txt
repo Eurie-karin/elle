@@ -1,1 +1,14 @@
 17/09/26
+plan is to find a .jpg image amoungst a sea of decoy directories, 
+
+needs:
+- make it so its more complicated than simply using find . -name "*.jpg"
+solution: make decoy .jpg files so you need to sort based off of file size as well
+- ensure that the challenge cannot be beaten by just checking every file manually
+solution: write a python script that creates as many decoys as desired
+
+challenges/what didn't work
+used python with my programmer friend, had to learn a lot of things, was initially going to be coded in bash but my friend suggested that the random python function would make the process much easier so I switched to python. 
+challenge feels a little too easy? when compared to ch1, when I finish the final challenge I will brainstorm how to add new depth to this challenge.
+
+

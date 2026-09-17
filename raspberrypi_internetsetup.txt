@@ -1,0 +1,22 @@
+Networking
+No wireless wifi - need ethernet
+For wifi - nmtui
+Enabled ssh
+Debian, sudo apt update
+Sudo apt install openssh
+Sudo systemctl start ssh
+Sudo apt install ufw
+Sudo ufw allow ssh
+Sudo ufw enable
+Sudo sysremctl enable ufw
+Sudo systemctl enable ssh
+Fixed not being able to ssh on boot — needing to
+
+St
+
+Python script
+Created wordlist from rock you
+Needing to install vignerate cipher library, using pip, since user does not have sudo need to go theough root
+
+Create pythin3 -m venv venv
+Creates virtual environment bc pip doesnt work
