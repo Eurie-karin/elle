@@ -1,0 +1,7 @@
+in order to run script.py first enter the virtual environment:
+source ./venv/bin/activate
+to exit:
+deactive
+
+to run script.py in a .sh, include:
+source ./venv/bin/activate

@@ -1,0 +1,30 @@
+
+16/9/26 - hiding/manipulating the contents of an image
+idea: this will be the third consecutive challenge and be the combiantion of the answers from one and two, the idea is to unencrypt the code from an image and to paste that into an existing image to 'complete" the image and find a readable message
+
+first impressions
+- image code is VERY long 6-7 pages worth, would be impractical to need to unencrypt the whole image, a partial code segment might be possible
+- image code contains many special charaters and some unreadable charaters denoted by [] (a box) this may prove copying and encrypted impossible as an accented U for example won't fit into my inital idea of using a caeser cypher,
+
+trying anyway
+attempted to copy the unreadable charaters in an image, the copied charaters gave a warning about sanatising (cleaning, filtering, modifying to remove harmful charaters or tages like <>)to the pasted code when pasted into a .jpg file, the jpg file had the apperance of an image but when clicked on would not load anything. I attempted this with and without the sanatisation both times yielded the same result. 
+
+Furthermore when testing whether removing and adding back sections of the code (using undo), once the image broke it did not go back to a viewable state even once the code was returned to its original state.
+
+Overall this approach is not viable
+
+idea: learn how to use steghide and hide data in the image found in two
+commands:
+steghide embed -cf image.jpg -ef text.txt or .sh (scripts)
+embeds the text into the image, requires a passphrase (aquired from one)
+IDEA: find a script in image from two using the passkey from one, script reverses something??? (evolution)
+to extract:
+steghide extract -sf image.jpg
+-need passphrase
+
+steghide will be viable for challenge 3.
+
+
+
+
+
