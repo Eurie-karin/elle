@@ -1,0 +1,43 @@
+17/09/26
+set up decision log:
+use a docker system set up with a yml file, or create a user manually and run the challenge off that.
+
+Docker system, pros & cons
+pro: easy to start up and shut down, (docker compose up can bring the whole user & challenges online)
+pro: since the entire challenge scaffolding can be set up and shut down with two commands, the challenge is easily resetable for each player, meaning if someone messes the challenge up (somehow) it will not effect the next player
+
+con: time consuming to set up, need to remind myself about how to write dockerfiles and set up a yml file.
+con: potentially eats up more storage and ram, raspberry pi 3 does not have much of either
+
+Manual user set up (non sudo user) 
+pro: simple set up with minimal chances of complication 
+pro: basically 0 storage/ ram used
+
+con: requires manual reset of challenge components if challenge is messed up.
+
+Decision: manual user set up
+why? mostly due to time constraints, as I would rather spend the time developing other aspects of the challenge rather than improving the security of this section. I will need to be more careful with my permissions I give users.
+
+Set up:
+needed to create a temporary user to rename my initial sudo user which was origianlyl intended to run the challenge off of, this would have been a foolish decision as it would have given sudo to all users who knew the password of the user which is required to know to log on. As such I created a temp user and renamed my initial user 'admin' and created a new sudoless user of which the challenge will take place
+
+idea: unreadable executable script (likely java) decompiled so it reads binary if the user uses scp and cat to find the encrypted data
+
+script gives the user a caesar cypher and is given 6 guesses to get the correct shift before the script shifts the cypher a different amount
+
+attempting to prototype: 
+early on it was figured that it would be preferable to encrypt the flag with a passkey rather than a shift, furthermore the idea of having a limited number of guesses was impractical for the medium regardless of whether the cipher was a shift or a passkey encrypter. Because unlike say a hangman game with limited guesses where you can still infer knowledge and eliminate mulitple possibilities off one given answer, a passkey cipher is based on chance/brute forcing,this would make guessing the correct passkey (with little or no context) essentially impossible in 6 guesses. On the other hand a shift cipher can be easily solved using a web interface and therefore would require no more than one single guess. Thus spending the time to code a limited guess reset system is unnesscearyu 
+
+As such the challenge pivoted to building a brute forcing bash script, using a word list of passwords provided in the user. For the final challenge the wordlist could be hidden, adding further depth. 
+
+coding & creating the set up.
+The plan was to create a script which - using a vignere cipher (a passkey cipher I selected) - encrypted the flag with a randomised passkey from the provided word list, the script would print this encrypted text and prompt the user to input the to passkey which would then output the dencrypted message
+
+compromises, ethical considerations & security risks
+to prevent the script from just being read using cat, which would yield the passkey & the dencrypted message - presenting a major shortcut in my challenge - the plan was to use pyguard to obfuscate the source code. However I was not able to get pyguard working, for the final challenge I will devote more time to ensuring this set is completed as without pyguard the challenge is essentially just a simple cat file: get flag. 
+Furthermore the intial idea of randomising the passkey each time the script is run doesn't work for the same reason that having limitied guesses doesn't, if it randomises each time a brute force script could run endlessly without finding the right passkey. As such the passkey was changed to be a static value, this unfortunatly compromises the security of the challenge as the static key can be passed around between players. 
+given that the intended solution of the challenge involves creating a brute forcing script its important to make clear boundarys and be informative of the considerations when applying such techniques as in the real world brute forcing is usually a malicaous tool used to unethically gain access to unautherised files & data. As such it is important to apply it safely and with knowledge of its severatiy.
+
+because the target audience is yr 11 networking students, I included a text file outlining how to run the python file, and how to use said file in a bash script to avoid unnesccary confusion and frustration.
+
+
