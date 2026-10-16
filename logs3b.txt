@@ -1,0 +1,17 @@
+16/10/2026
+what is going to be put into the image?
+
+options:
+flag - basic but easy, ratifys the plan
+script - like escape room it opens another section of the user... (makes a docker user and puts you in it)
+
+Prototyping for script:
+Dockerfile - create user with files preloaded, be hidden from user maybe unreadable... pyguard?
+Automatically sshs you into the docker, pyguard to prevent cheesing
+
+Dockerfile:
+username & password of void as to make sshing in as easy as possible, 
+adding necessary stuff for ssh
+for copying files into the docker user, where will the files be?
+potentially the item in the image is a zip file with .sh, dockerfile and an archive with all the files that need to be inputed into the docker user. This does pose a security risk however
+
