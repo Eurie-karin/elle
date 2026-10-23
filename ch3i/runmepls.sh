@@ -10,4 +10,4 @@ fi
 
 docker run -d $DOCKER_USER
 
-ssh "void@
+ssh void@localhost -p 2222

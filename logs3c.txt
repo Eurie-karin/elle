@@ -1,0 +1,16 @@
+23/10/2026
+Original plan: gain passkey from ch1 and image from ch2, use both to extract some flag or hint from the image
+
+- issues: not really a challenge??
+solution: have the extracted file lead to a new challenge, 
+
+requirements: put a .sh into an image using steghide,
+
+new requirements: put a .7z into an image - this works. Is needed because the idea is that the script will build and place the user into a created docker user, for this to work we need the dockerfile to be with the extracted files, furthermore we also need an archive for the files that are going to be imported onto the docker user. 
+
+Test: I was able to put a .7z into a test image, will begin building the dockerfile.
+
+What will the challenge be inside the docker user? - a runme that explains some rules, just echoing lines, this would function as the hint system.
+
+
+
