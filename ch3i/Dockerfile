@@ -1,7 +1,7 @@
 FROM alpine:latest
-RUN apk add --no-cache openssh-server oppenssh bash 
-RUN adduser -D -s /bin/sh void && \ 
-	echo "void:void" | chpasswd
+RUN apk add --no-cache openssh-server openssh bash 
+RUN adduser -D -s /bin/sh waste && \ 
+	echo "waste:waste" | chpasswd
 RUN ssh-keygen -A
 RUN mkdir -p /run/sshd
 EXPOSE 22

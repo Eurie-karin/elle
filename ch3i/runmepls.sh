@@ -1,13 +1,15 @@
 #!/bin/bash
 
-DOCKER_USER="abyss"
+DOCKER_USER="waste"
 
-docker build -t abyss .
+docker build -t "$DOCKER_USER" .
 
-if [ "$(docker ps -a -q -f name^/${DOCKER_USER}$)" ]; then
-	docker rm $DOCKER_USER >/dev/null
+if [ "$(docker ps -a -q -f name=^/${DOCKER_USER}$)" ]; then
+	docker rm -f "$DOCKER_USER" >/dev/null
 fi
 
-docker run -d $DOCKER_USER
+docker run -d --name "$DOCKER_USER" -p 2224:22 "$DOCKER_USER"
 
-ssh void@localhost -p 2222
+sshpass -p 'waste' ssh waste@localhost -p 2224
+
+

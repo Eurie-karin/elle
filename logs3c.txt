@@ -12,5 +12,22 @@ Test: I was able to put a .7z into a test image, will begin building the dockerf
 
 What will the challenge be inside the docker user? - a runme that explains some rules, just echoing lines, this would function as the hint system.
 
+26/10/2026
+problem solved some issues with script that places you into docker user, should work now, removes previous dockerfiles eachtime, this potentially adds an aditional issue, as a student could run the script and create the docker user, and then a second student could run the script and remove previous docker users with the same name, kicking out the first student
+
+30/10/2026
+A solution of sorts to this is that student 1 can simply ssh vback onto the user they were kicked from. - issue, the user name and password must be provided or students will not know how to get back into the user. This is not a perfect fix, infact its very rough but will serve purpose. Notebly this is an example of a practice that would not surfice in a situation with any meaninfully large scale or in any professional environment. Its a bandaid fix that suits the scope as a year 12 project.
+
+Script works, and can be hidden in an image, what will the students do in the docker user?
+
+6/11/2026
+manipulate history, find clues in the history of the user, potentially this could be achieved by running commands in the build script
+
+- tested, pretty sure this doesn't work, put echo "hello world" in build script, it didn't show up in the history, probaboly because the script isn't running as the docker user. 
+
+potentially could be solved by using a persistant volume, will test
+an alternative approach could be to use binwalker, or something else that deals in bin/history
+
+
 
 
